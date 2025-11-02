@@ -1,4 +1,4 @@
-package US_601;
+package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
