@@ -8,7 +8,6 @@ features = "src/test/resources/features/transferMoney.feature",
 glue = {"stepDefinitions", "hooks"},
 plugin = {"pretty", "html:target/cucumber-report.html",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-tags = "@Smoke", // tags eklenmek zorunda degil
 monochrome = true
 )
 

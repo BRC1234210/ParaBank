@@ -1,7 +1,7 @@
 Feature: Transfer Money Functionality
 
   Background:
-    When Navigate to the webpage
+    When navigate to the webpage
     Then enter the username and password
     Then Click login button
     Then verify Home Page Opened
