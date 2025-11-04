@@ -5,7 +5,9 @@ import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import pages.HomePage;
 import pages.LoginPage;
+import pages.TransferMoneyPage;
 import utility.BaseDriver;
 import utility.ConfigReader;
 
@@ -15,11 +17,17 @@ public class loginSteps {
 
     WebDriver driver;
     LoginPage loginPage;
+    TransferMoneyPage transferMoneyPage;
+    HomePage homePage;
 
     @When("navigate to the webpage")
     public void navigateToTheWebpage() {
         driver= BaseDriver.getDriver();
         loginPage=new LoginPage(driver);
+        transferMoneyPage = new TransferMoneyPage(driver);
+        homePage=new HomePage(driver);
+
+
 
         driver.get("https://parabank.parasoft.com/parabank/index.htm");
         LOGGER.info("Webpage opened");
@@ -37,6 +45,7 @@ public class loginSteps {
 
     @Then("verify Home Page Opened")
     public void verifyHomePageOpened() {
-        loginPage.verifyInvalidMessage();
+        homePage.overviewVerify();
+
     }
 }

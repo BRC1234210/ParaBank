@@ -50,7 +50,6 @@ public class Hooks {
                 LOGGER.info("Scenario passed {}", scenario.getName());
             }
 
-            ExcelHelper.writeReport("target/report.xlsx", scenario.getName(), scenario.getStatus().toString());
         } finally {
             BaseDriver.tearDown();
             LOGGER.info("The driver quited successfully");

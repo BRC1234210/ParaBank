@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class RegistrationPage extends BasePage{
@@ -40,11 +41,11 @@ public class RegistrationPage extends BasePage{
       @FindBy(id= "repeatedPassword")
     private WebElement confirmInput;
 
-     @FindBy(css= "[value='Register']")
-    private WebElement registerBtn;
+     @FindBy(xpath = "//form[@id='customerForm']//input[@value='Register']")
+    private WebElement registerBtn2;
 
-     @FindBy(css = "[class='error']")
-     private WebElement errorText;
+     @FindBy(xpath = "//*[@id='rightPanel']/p")
+     private WebElement welcomeText;
 
 
     public RegistrationPage(WebDriver driver) {
@@ -64,11 +65,13 @@ public class RegistrationPage extends BasePage{
         sendKeysToElement(passwordInput, password);
         sendKeysToElement(confirmInput, confirm);
     }
-    public void clickRegisterBtn () {
-        clickElement(registerBtn);
+    public void clickRegisterBtn2 () {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(registerBtn2).click().perform();
+
     }
-    public void verifyErrorText (){
-        verifyDisplayed(errorText, "Error is not visible");
+    public void verifyWelcomeText (){
+        verifyDisplayed(welcomeText, "Error message");
 
     }
 
