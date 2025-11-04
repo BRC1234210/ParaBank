@@ -19,12 +19,18 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[@id='rightPanel']/p")
     private WebElement invalidMessage;
 
-    @FindBy(xpath = "//div[@id='loginPanel']//a[@href='register.htm']")
-    private WebElement registerBtn;
+    @FindBy(xpath = "//*[@id='loginPanel']/p[2]/a")
+    private WebElement registerLink;
 
-    public void clickRegisterBtn(){
-        Actions actions = new Actions(driver);
-        actions.moveToElement(registerBtn).click().perform();
+    @FindBy(xpath = "//body[@onload='document.login.username.focus();']")
+    private WebElement blank;
+
+    public void clickOnBlankSpace(){
+        clickElement(blank);
+    }
+
+    public void clickRegisterLink(){
+       clickElement(registerLink);
     }
 
 

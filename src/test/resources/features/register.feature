@@ -6,7 +6,7 @@ Feature: Open New Account Functionality
 
   Scenario Outline: Create New Account
     When Navigate to the webpage
-    Then Click the Register Button on the login page
+    Then Click the Register Link
     And Fill the additional details
       | field     | value       |
       | firstname | <firstname> |

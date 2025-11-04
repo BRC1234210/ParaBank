@@ -36,11 +36,6 @@ public class RegistrationSteps {
             LOGGER.info("Webpage opened");
     }
 
-    @Then("Click the Register Button on the login page")
-    public void clickTheRegisterLinkOnLoginPage() {
-        loginPage.clickRegisterBtn();
-        LOGGER.info("Register Button Clicked");
-    }
 
     @And("Fill the additional details")
     public void fillTheAdditionalDetails(DataTable dataTable) {
@@ -68,6 +63,12 @@ public class RegistrationSteps {
     public void verifyRegistrationIsSuccessful() {
         registrationPage.verifyWelcomeText();
         LOGGER.info("Welcome Message seen");
+    }
+
+    @Then("Click the Register Link")
+    public void clickTheRegisterLink() {
+        loginPage.clickOnBlankSpace();
+        loginPage.clickRegisterLink();
     }
 }
 

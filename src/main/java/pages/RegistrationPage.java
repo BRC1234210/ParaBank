@@ -44,7 +44,7 @@ public class RegistrationPage extends BasePage{
      @FindBy(xpath = "//form[@id='customerForm']//input[@value='Register']")
     private WebElement registerBtn2;
 
-     @FindBy(css = "//div[@id='rightPanel']/h1")
+     @FindBy(xpath = "//*[@id='rightPanel']/p")
      private WebElement welcomeText;
 
 
