@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.RegistrationPage;
+import pages.TransferMoneyPage;
 import utility.BaseDriver;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class RegistrationSteps {
     WebDriver driver;
     LoginPage loginPage;
     RegistrationPage registrationPage;
+    TransferMoneyPage transferMoneyPage;
 
     @When("Navigate to the webpage")
     public void navigate_to_the_webpage() {
@@ -28,6 +30,7 @@ public class RegistrationSteps {
             loginPage=new LoginPage(driver);
             registrationPage = new RegistrationPage(driver);
             homePage = new HomePage(driver);
+            transferMoneyPage = new TransferMoneyPage(driver);
 
             driver.get("https://parabank.parasoft.com/parabank/index.htm");
             LOGGER.info("Webpage opened");
