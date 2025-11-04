@@ -37,7 +37,8 @@ public class TransferMoneySteps {
 
     @Then("Fill amount and choose accounts")
     public void fillAmountAndChooseAccounts() {
-        transferMoneyPage.CompleteFindTransaction();
+        transferMoneyPage.enterAmount();
+        transferMoneyPage.moneyTransfer();
     }
 
     @Then("Click Transfer Button")

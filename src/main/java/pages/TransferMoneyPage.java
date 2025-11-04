@@ -71,7 +71,7 @@ public class TransferMoneyPage extends BasePage {
         Select select = new Select(fromAccount);
         select.getFirstSelectedOption();
         Select select1 = new Select(toAccount);
-        select1.selectByIndex(1);
+        select1.getFirstSelectedOption();
     }
 
     public void enterAmount() {

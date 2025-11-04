@@ -13,11 +13,7 @@ Feature: Transfer Money Functionality
     Then Fill amount and choose accounts
     Then Click Transfer Button
     Then Check Transfer Message
-
-  @Payment
-  @Regression
-  Scenario: Check Transfer Money
-    When Click Find Transactions
+    Then Click Find Transactions
     Then Complete Find Transactions Section
     Then Click Find Transactions
     Then Check Transaction Results
