@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
@@ -18,11 +19,12 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[@id='rightPanel']/p")
     private WebElement invalidMessage;
 
-    @FindBy(xpath = "//div[@id='loginPanel']/p[2]")
+    @FindBy(xpath = "//div[@id='loginPanel']//a[@href='register.htm']")
     private WebElement registerBtn;
 
     public void clickRegisterBtn(){
-        clickElement(registerBtn);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(registerBtn).click().perform();
     }
 
 

@@ -1,31 +1,70 @@
 package stepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import pages.HomePage;
+import pages.LoginPage;
+import pages.RegistrationPage;
+import utility.BaseDriver;
+
+import java.util.List;
+import java.util.Map;
 
 public class RegistrationSteps {
+    public Logger LOGGER = LogManager.getLogger(this.getClass());
+    HomePage homePage;
+    WebDriver driver;
+    LoginPage loginPage;
+    RegistrationPage registrationPage;
 
     @When("Navigate to the webpage")
     public void navigate_to_the_webpage() {
-        System.out.println("Web page is navigated");
+            driver= BaseDriver.getDriver();
+            loginPage=new LoginPage(driver);
+            registrationPage = new RegistrationPage(driver);
+            homePage = new HomePage(driver);
+
+            driver.get("https://parabank.parasoft.com/parabank/index.htm");
+            LOGGER.info("Webpage opened");
     }
 
-    @Then("Click the Register Link on the home page")
-    public void clickTheRegisterLinkOnTheHomePage() {
-
+    @Then("Click the Register Button on the login page")
+    public void clickTheRegisterLinkOnLoginPage() {
+        loginPage.clickRegisterBtn();
+        LOGGER.info("Register Button Clicked");
     }
 
     @And("Fill the additional details")
-    public void fillTheAdditionalDetails() {
+    public void fillTheAdditionalDetails(DataTable dataTable) {
+        List<Map<String,String>> data = dataTable.asMaps(String.class, String.class);
+
+        for(Map<String, String> row : data) {
+            String field = row.get("field");
+            String value = row.get("value");
+
+            System.out.println(field + ":" + value);
+
+            LOGGER.info("Registration fulfilled");
+        }
     }
 
     @Then("Click Register button")
     public void clickRegisterButton() {
+        registrationPage.clickRegisterBtn2();
+        LOGGER.info("Registration Clicked");
+
+
     }
 
     @Then("Verify Registration is successful")
     public void verifyRegistrationIsSuccessful() {
+        registrationPage.verifyWelcomeText();
+        LOGGER.info("Welcome Message seen");
     }
 }
 
