@@ -12,14 +12,14 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//div[@id='leftPanel']/ul/li[2]/a")
     private WebElement accountsOverviewbtn;
 
-    @FindBy(xpath = "//div[@id='leftPanel']/ul/li[3]/a")
-    private WebElement transferFundsBtn;
+    @FindBy(xpath = "//div[@id='leftPanel']//a[@href='transfer.htm']")
+    private WebElement TransferFundsLink;
 
     @FindBy(xpath = "//div[@id='leftPanel']/ul/li[4]/a")
     private WebElement billPayBtn;
 
-    @FindBy(xpath = "//div[@id='leftPanel']/ul/li[5]/a")
-    private WebElement findTransactionBtn;
+    @FindBy(xpath = "//div[@id='leftPanel']//a[@href='findtrans.htm']")
+    private WebElement FindTransactionLink;
 
     @FindBy(xpath = "//div[@id='leftPanel']/ul/li[6]/a")
     private WebElement updateContactInfoBtn;
@@ -45,16 +45,16 @@ public class HomePage extends BasePage{
         clickElement(accountsOverviewbtn);
     }
 
-    public void transferFundsButton(){
-        clickElement(transferFundsBtn);
+    public void clicktransferFundsLink(){
+        clickElement(TransferFundsLink);
     }
 
     public void billPayButton(){
         clickElement(billPayBtn);
     }
 
-    public void findTransactionButton(){
-        clickElement(findTransactionBtn);
+    public void clickfindTransactionLink(){
+        clickElement(FindTransactionLink);
     }
 
     public void updateContactInfoBtn(){

@@ -32,7 +32,7 @@ public class TransferMoneySteps {
         driver.get("https://parabank.parasoft.com/parabank/index.htm");
         LOGGER.info("Webpage opened");
 
-        transferMoneyPage.clickTransferFunds();
+        homePage.clicktransferFundsLink();
     }
 
     @Then("Fill amount and choose accounts")
@@ -53,7 +53,7 @@ public class TransferMoneySteps {
 
     @When("Click Find Transactions")
     public void clickFindTransactions() {
-        transferMoneyPage.clickFindTransactionLink();
+        homePage.clicktransferFundsLink();
     }
 
     @Then("Complete Find Transactions Section")

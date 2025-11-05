@@ -7,9 +7,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class TransferMoneyPage extends BasePage {
 
-    @FindBy(xpath = "//div[@id='leftPanel']//a[@href='transfer.htm']")
-    private WebElement TransferFundsLink;
-
     @FindBy(xpath = "//form[@id='transferForm']//input[@id='amount']")
     private WebElement amountBox;
 
@@ -25,8 +22,7 @@ public class TransferMoneyPage extends BasePage {
     @FindBy(xpath = "//div[@id='showResult']/h1")
     private WebElement TransferCompleteText;
 
-    @FindBy(xpath = "//div[@id='leftPanel']//a[@href='findtrans.htm']")
-    private WebElement FindTransactionLink;
+
 
     @FindBy(xpath = "//select[@id='accountId']")
     private WebElement SelectAccountId;
@@ -47,9 +43,6 @@ public class TransferMoneyPage extends BasePage {
         clickElement(FindTransactionBtn);
     }
 
-    public void clickFindTransactionLink(){
-        clickElement(FindTransactionLink);
-    }
 
     public void CompleteFindTransaction() {
         Select select = new Select(SelectAccountId);
@@ -83,7 +76,4 @@ public class TransferMoneyPage extends BasePage {
         super(driver);
     }
 
-    public void clickTransferFunds() {
-        clickElement(TransferFundsLink);
-    }
 }
