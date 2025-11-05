@@ -63,6 +63,6 @@ public class TransferMoneySteps {
 
     @Then("Check Transaction Results")
     public void checkTransactionResults() {
-        transferMoneyPage.ClickFindTransactionButton();
+        transferMoneyPage.TransactionResultsText();
     }
 }
