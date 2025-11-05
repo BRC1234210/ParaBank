@@ -16,7 +16,7 @@ import utility.BaseDriver;
 import java.util.List;
 import java.util.Map;
 
-public class RegistrationSteps {
+public class US_601_RegistrationSteps {
     public Logger LOGGER = LogManager.getLogger(this.getClass());
     HomePage homePage;
     WebDriver driver;

@@ -8,7 +8,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import utility.BaseDriver;
 
-public class BillPaySteps {
+public class US_603_BillPaySteps {
     public Logger LOGGER = LogManager.getLogger(this.getClass());
 
     WebDriver driver;
