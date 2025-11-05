@@ -9,6 +9,7 @@ Feature: Update Contact Information
     Then Click login button
     Then verify Home Page Opened
 
+
   Scenario Outline: Successfully update contact information and verify persistence after re-login
     When the user navigates to "Update Contact Info" page
     Then the user verifies the Update Profile form fields are displayed: First Name, Last Name, Address, City, State, Zip Code
