@@ -11,7 +11,7 @@ import pages.RegistrationPage;
 import pages.TransferMoneyPage;
 import utility.BaseDriver;
 
-public class TransferMoneySteps {
+public class US_605_TransferMoneySteps {
 
     public Logger LOGGER = LogManager.getLogger(this.getClass());
     HomePage homePage;

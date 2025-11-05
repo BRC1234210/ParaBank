@@ -11,7 +11,7 @@ import pages.TransferMoneyPage;
 import utility.BaseDriver;
 import utility.ConfigReader;
 
-public class loginSteps {
+public class US_602_loginSteps {
 
     public Logger LOGGER = LogManager.getLogger(this.getClass());
 

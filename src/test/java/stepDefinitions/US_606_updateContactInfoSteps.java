@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,7 +10,7 @@ import pages.UpdateContactInfoPage;
 import utility.ConfigReader;
 
 
-public class updateContactInfoSteps {
+public class US_606_updateContactInfoSteps {
     WebDriver driver;
     UpdateContactInfoPage updateContactInfoPage;
     public Logger LOGGER = LogManager.getLogger(this.getClass());
