@@ -10,6 +10,6 @@ import io.cucumber.testng.CucumberOptions;
                     "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
             monochrome = true
     )
-    public class updateContactInfoRunner extends AbstractTestNGCucumberTests {
+    public class UpdateContactInfoRunner extends AbstractTestNGCucumberTests {
     }
 
