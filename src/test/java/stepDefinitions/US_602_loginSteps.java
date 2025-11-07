@@ -48,4 +48,14 @@ public class US_602_loginSteps {
         homePage.overviewVerify();
 
     }
+
+    @Then("enter the wrong username and password")
+    public void enterTheWrongUsernameAndPassword() {
+        loginPage.enterUsernameAndPassword("wrongUsername","WrongPassword");
+    }
+
+    @Then("Check the warning message")
+    public void checkTheWarningMessage() {
+        loginPage.verifyInvalidMessage();
+    }
 }
