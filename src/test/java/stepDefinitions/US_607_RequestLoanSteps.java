@@ -26,7 +26,7 @@ public class US_607_RequestLoanSteps {
         requestLoanPage = new RequestLoanPage(driver);
 
         driver.get("https://parabank.parasoft.com/parabank/index.htm");
-        LOGGER.info("linkname is clickable", linkName);
+        LOGGER.info("Linkname is clickable", linkName);
         homePage.requestLoanBtn();
     }
 
@@ -34,62 +34,56 @@ public class US_607_RequestLoanSteps {
     public void theUserEntersValuesInTheAndFields(String loan, String down) {
         requestLoanPage.fillLoan(loan);
         requestLoanPage.fillDown(down);
-        LOGGER.info("", loan, down);
+        LOGGER.info("Loan amount entered"+ loan+ "down amount entered"+  down);
     }
 
     @Then("The user selects an account number")
     public void theUserSelectsAnAccountNumber() {
         requestLoanPage.selectAccount();
-        LOGGER.info("");
+        LOGGER.info("Bank account selected");
     }
 
     @Then("The user clicks the {string} button")
     public void theUserClicksTheButton(String Apply) {
         requestLoanPage.clickApplyButton();
-        LOGGER.info("", Apply);
+        LOGGER.info("Apply button clicked", Apply);
     }
 
-    @Then("The user {string}")
-    public void theUser(String request) {
-        requestLoanPage.verifyRequest();
-        LOGGER.info("", request);
-    }
+
     @Then("The user verifies the message {string}")
     public void theUserVerifiesTheMessage(String acceptedMessage) {
         requestLoanPage.verifySuccessfully();
+        LOGGER.info("Conguratilation text is displayed");
     }
 
 
     @Then("The user clicks on the link for the newly created credit account number")
     public void theUserClicksOnTheLinkForTheNewlyCreatedCreditAccountNumber() {
         requestLoanPage.clickLinkAccount();
-        LOGGER.info("");
+        LOGGER.info("Link button is clicked");
     }
 
 
     @Then("The user then verifies the information in the “Account Details” section and confirms the “No transactions found” message.")
     public void theUserThenVerifiesTheInformationInTheAccountDetailsSectionAndConfirmsTheNoTransactionsFoundMessage() {
         requestLoanPage.verifyAccountDetailsAndNoTranscation();
-        LOGGER.info("");
+        LOGGER.info("The data under account details and the message “no transaction found” appeared.");
     }
 
 
     @Then("The user enters the {string} as {string} and the {string} as {string}")
-    public void theUserEntersTheAsAndTheAs(String loanAmount, String loanInput, String downPayment, String downInput) {
+    public void theUserEntersTheAsAndTheAs(String loanAmount, String loanInput, String downAmount, String downInput) {
         requestLoanPage.fillInvalidLoan();
         requestLoanPage.fillInvalidDown();
-        LOGGER.info("", loanAmount, loanInput, downInput, downPayment);
+        LOGGER.info("Loan amount entered" + loanAmount+"1.000.000 entered" + loanInput+ "10.000 entered"+ downInput+ "Down amount entered"+  downAmount);
     }
 
-    @Then("The user selects an account number from the {string} dropdown menu")
-    public void theUserSelectsAnAccountNumberFromTheDropdownMenu(String select) {
-        requestLoanPage.selectAccount();
-        LOGGER.info("", select);
-    }
+
 
     @Then("The user verifies under the {string} heading that:")
-    public void theUserVerifiesUnderTheHeadingThat(String arg0) {
+    public void theUserVerifiesUnderTheHeadingThat(String request) {
         requestLoanPage.verifyRequest();
+        LOGGER.info("The message “Credit Request Processed” appeared.");
     }
 
 
@@ -97,7 +91,7 @@ public class US_607_RequestLoanSteps {
     @Then("The user verifies the error message {string}")
     public void theUserVerifiesTheErrorMessage(String errorMessage) {
         requestLoanPage.verifyErrorPayment();
-        LOGGER.info("", errorMessage);
+        LOGGER.info("Error message is displayed", errorMessage);
     }
 
 
