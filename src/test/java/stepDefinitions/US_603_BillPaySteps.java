@@ -1,55 +1,81 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
-import pages.HomePage;
-import pages.LoginPage;
+import pages.BillpayPage;
 import utility.BaseDriver;
 
 public class US_603_BillPaySteps {
     public Logger LOGGER = LogManager.getLogger(this.getClass());
 
-    WebDriver driver;
-    HomePage homePage;
-    LoginPage loginPage;
+    BillpayPage billpayPage;
+
+    public US_603_BillPaySteps() {
+        this.billpayPage = new BillpayPage(BaseDriver.getDriver());
+    }
+
+    @Given("User is on the Bill Pay page")
+    public void user_is_on_the_bill_pay_page() {
+        BaseDriver.getDriver().get("https://parabank.parasoft.com/parabank/billpay.htm");
+        LOGGER.info("Navigated to Bill Pay page");
+    }
 
     @Then("Click bill pay button")
     public void click_bill_pay_button() {
- driver= BaseDriver.getDriver();
- homePage.billPayButton();
+        billpayPage.bilpaypage();
+        LOGGER.info("Bill Pay button clicked");
     }
-    @Then("Fill the payee information")
-    public void fill_the_payee_information(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+
+    @Then("Fill the payee information {string} {string} {string} {string} {string} {string}")
+    public void fill_the_payee_information(String payeename, String address,
+                                           String city, String state,
+                                           String zipcode, String phone) {
+        billpayPage.fillPayeeinfo(payeename, address, city, state, zipcode, phone);
+        LOGGER.info("Payee information filled - Name: " + payeename + ", City: " + city);
     }
-    @Then("Click read account number")
-    public void click_read_account_number() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+
     @Then("fill the account inputs")
     public void fill_the_account_inputs() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        billpayPage.sendAccountInfo();
+        LOGGER.info("Account info filled successfully");
     }
+
+    @Then("fill the amount input {string}")
+    public void fillTheAmountInput(String amount) {
+        billpayPage.fillAmountInput(amount);
+        LOGGER.info("Amount filled successfully");
+    }
+
     @Then("click the send payment button")
     public void click_the_send_payment_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        billpayPage.sendPay();
+        LOGGER.info("Send payment button clicked");
     }
+
     @Then("Verify the payment is successful")
     public void verify_the_payment_is_successful() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        billpayPage.verifyPaymentText();
+        LOGGER.info("Payment verification completed");
+    }
+
+    @Then("click the Account OverView Page")
+    public void click_the_account_over_view_page() {
+        billpayPage.clickOverViewpage();
+    }
+    @Then("verify payment1")
+    public void verify_payment1() {
+        billpayPage.verifyPayment1();
+    }
+    @Then("verify payment2")
+    public void verify_payment2() {
+        billpayPage.verifyPayment2();
+    }
+
+    @Then("verify payment3")
+    public void verify_payment3() {
+       billpayPage.verifyPayment3();
     }
 
 }
