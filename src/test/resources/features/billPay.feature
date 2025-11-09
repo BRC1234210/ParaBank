@@ -1,31 +1,25 @@
 Feature: Paying bills tests
 
-Background:
-    When Navigate to the webpage
-    Then Click the Register Link
-    And Fill the additional details
-    Then Click Register button
-    Then Verify Registration is successful
-
-Background:
+  Background:
     When navigate to the webpage
     Then enter the username and password
     Then Click login button
-    Then verify Home Page Opened
 
-  @Smoke
-  Scenario: Pay Bills
+  Scenario Outline: Pay Bills
     Then Click bill pay button
-    And Fill the payee information
-      | field     | value       |
-      | payeename | <mahmut>    |
-      | address   | <sokak>     |
-      | city      | <bursa>     |
-      | state     | <TR>        |
-      | zipcode   | <123456>    |
-      | phone     | <33333>     |
-
-    Then Click read account number
+    And Fill the payee information "<payeename>" "<address>" "<city>" "<state>" "<zipcode>" "<phone>"
     Then fill the account inputs
+    Then fill the amount input "<amount>"
     Then click the send payment button
     Then Verify the payment is successful
+    Then click the Account OverView Page
+    Then verify payment1
+    Then verify payment2
+    Then verify payment3
+
+    Examples:
+      | payeename  | address | city  | state | zipcode | phone   |amount|
+      | su         | bursa   | bursa | TR    | 123     | 3332211 |20    |
+      | elektrik   | bursa   | bursa | TR    | 123     | 3332211 |40    |
+      | gaz        | bursa   | bursa | TR    | 123     | 3332211 |50    |
+

@@ -1,9 +1,10 @@
 package runner;
 
+import hooks.Hooks;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-public class BillPayRunner {
+
     @CucumberOptions(
             features = "src/test/resources/features/billPay.feature",
             glue = {"stepDefinitions", "hooks"},
@@ -13,6 +14,6 @@ public class BillPayRunner {
     )
 
 
-    public class TestRunner extends AbstractTestNGCucumberTests {
+    public class BillPayRunner extends AbstractTestNGCucumberTests {
     }
-}
+
