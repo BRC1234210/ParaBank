@@ -16,10 +16,12 @@ Feature: Paying bills tests
     Then verify payment1
     Then verify payment2
     Then verify payment3
+    Then click Logout button
 
     Examples:
       | payeename  | address | city  | state | zipcode | phone   |amount|
       | su         | bursa   | bursa | TR    | 123     | 3332211 |20    |
-      | elektrik   | bursa   | bursa | TR    | 123     | 3332211 |40    |
-      | gaz        | bursa   | bursa | TR    | 123     | 3332211 |50    |
+      | elektrik   | bursa   | bursa | TR    | 123     | 3332211 |20    |
+      | gaz        | bursa   | bursa | TR    | 123     | 3332211 |20    |
+
 
