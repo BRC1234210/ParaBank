@@ -78,4 +78,8 @@ public class US_603_BillPaySteps {
        billpayPage.verifyPayment3();
     }
 
+    @Then("click Logout button")
+    public void clickLogoutButton() {
+        billpayPage.logOut();
+    }
 }

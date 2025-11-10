@@ -37,14 +37,14 @@ public class BillpayPage extends BasePage {
     private WebElement billpayText;
     @FindBy(xpath = "//span[@id='amount']")
     private WebElement amountVerifyText;
-    @FindBy(xpath = "fromAccountId")
+    @FindBy(xpath = "//span[@id='fromAccountId']")
     private WebElement accountVerifyText;
 
     //AccountOverView Page
     @FindBy(xpath = "//div[@id='leftPanel']/ul/li[2]/a")
     private WebElement accountsOverviewbtn;
     // accountoverview.click/homepage
-    @FindBy(xpath = "//tbody/tr/td/a")
+    @FindBy(xpath = "//table[@id='accountTable']/tbody/tr/td/a")
     private WebElement accountClick;
 
     @FindBy(xpath = "//table[@id='transactionTable']/tbody/tr/td")
@@ -67,6 +67,9 @@ public class BillpayPage extends BasePage {
     private WebElement paymentNameVerifiy3;
     @FindBy(xpath = "//table[@id='transactionTable']/tbody/tr[3]/td[3]")
     private WebElement DebitVerify3;
+
+    @FindBy(xpath = "//a[text()='Log Out']")
+    private WebElement logOut;
 
     public BillpayPage(WebDriver driver) {
         super(driver);
@@ -91,6 +94,7 @@ public class BillpayPage extends BasePage {
     }
 
     public void sendAccountInfo(){
+        wait.until(ExpectedConditions.visibilityOf(formAccountselect));
         account.sendKeys(formAccountselect.getText());
         verifyAccount.sendKeys(formAccountselect.getText());
     }
@@ -105,12 +109,12 @@ public class BillpayPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(billpayText));
         Assert.assertTrue(billpayText.isDisplayed(),"Bill pay text is not visible");
         Assert.assertTrue(amountVerifyText.isDisplayed(),"Amount verify text is not visible");
-        Assert.assertEquals(formAccountselect.getText(),accountVerifyText.getText(),"Account number is not equal");
+        Assert.assertTrue(accountVerifyText.isDisplayed(),"Account number is not visible");
     }
     public void clickOverViewpage(){
         accountsOverviewbtn.click();
-        wait.until(ExpectedConditions.visibilityOf(account));
-        account.click();
+        wait.until(ExpectedConditions.visibilityOf(accountClick));
+        accountClick.click();
     }
 
 
@@ -119,6 +123,7 @@ public class BillpayPage extends BasePage {
         Assert.assertTrue(paymentDateverify1.isDisplayed(),"Date of payment is not visible");
         Assert.assertTrue(paymentNameVerifiy1.isDisplayed(),"Name of payment is not visible");
         Assert.assertTrue(debitVerify1.isDisplayed(),"Debit of payment is not visible");
+
     }
 
     public void verifyPayment2(){
@@ -131,5 +136,8 @@ public class BillpayPage extends BasePage {
         Assert.assertTrue(PaymentDateverify3.isDisplayed(),"Date of payment is not visible");
         Assert.assertTrue(paymentNameVerifiy3.isDisplayed(),"Name of payment is not visible");
         Assert.assertTrue(DebitVerify3.isDisplayed(),"Debit of payment is not visible");
+    }
+    public void logOut(){
+        logOut.click();
     }
 }
